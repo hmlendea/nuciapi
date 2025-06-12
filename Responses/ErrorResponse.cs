@@ -4,7 +4,7 @@ namespace NuciAPI.Responses
 {
     public sealed class ErrorResponse : Response
     {
-        public override bool IsSuccess => false;
+        public override bool Success => false;
 
         public ErrorResponse() : base(ErrorResponseMessages.Default) { }
 

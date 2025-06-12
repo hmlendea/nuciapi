@@ -2,10 +2,11 @@ namespace NuciAPI.Responses
 {
     public class SuccessResponse : Response
     {
-        public override bool IsSuccess => true;
+        public override bool Success => true;
 
         public SuccessResponse() : base(SuccessResponseMessages.Default) { }
 
         public SuccessResponse(string message) : base(message) { }
+
     }
 }
