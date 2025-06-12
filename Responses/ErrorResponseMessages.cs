@@ -4,6 +4,6 @@ namespace NuciAPI.Responses
     {
         public const string Default = "An error occurred while processing your request.";
 
-        public const string InvalidRequestContent = "Invalid request content.";
+        public const string InvalidRequest = "Invalid request.";
     }
 }

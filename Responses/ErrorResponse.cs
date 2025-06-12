@@ -13,7 +13,9 @@ namespace NuciAPI.Responses
         public ErrorResponse(Exception exception) : base(exception.Message) { }
 
         public static ErrorResponse FromMessage(string message) => new(message);
-
         public static ErrorResponse FromException(Exception exception) => new(exception);
+
+        public static ErrorResponse Default => new(ErrorResponseMessages.Default);
+        public static ErrorResponse InvalidRequest => new(ErrorResponseMessages.InvalidRequest);
     }
 }
