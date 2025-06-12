@@ -8,5 +8,7 @@ namespace NuciAPI.Responses
 
         public SuccessResponse(string message) : base(message) { }
 
+        public static SuccessResponse FromMessage(string message) => new(message);
+
     }
 }
