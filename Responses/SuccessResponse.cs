@@ -10,5 +10,6 @@ namespace NuciAPI.Responses
 
         public static SuccessResponse FromMessage(string message) => new(message);
 
+        public static SuccessResponse Default => FromMessage(SuccessResponseMessages.Default);
     }
 }
