@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using NuciSecurity.HMAC;
 
 namespace NuciAPI.Responses
 {
@@ -9,6 +10,7 @@ namespace NuciAPI.Responses
         public string Message { get; set; } = message;
 
         [JsonPropertyName("hmac")]
+        [HmacIgnore]
         public string HmacToken { get; set; }
     }
 }
