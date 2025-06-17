@@ -13,4 +13,8 @@
     <ImplicitUsings>disable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="NuciSecurity.HMAC" Version="4.0.0" />
+  </ItemGroup>
+
 </Project>
