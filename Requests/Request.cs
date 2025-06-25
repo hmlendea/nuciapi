@@ -5,11 +5,19 @@ using NuciSecurity.HMAC;
 
 namespace NuciAPI.Requests
 {
+    /// <summary>
+    /// Base class for all API requests.
+    /// </summary>
     public abstract class Request()
     {
         [Required]
         [JsonPropertyName("hmac")]
         [HmacIgnore]
+        /// <summary>
+        /// HMAC token for request validation.
+        /// This property is used to verify the integrity and authenticity of the request.
+        /// It should be generated using the server's secret key and the request data.
+        /// </summary>
         public string HmacToken { get; set; }
     }
 }
