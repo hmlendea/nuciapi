@@ -8,7 +8,7 @@ namespace NuciAPI.Requests
     /// <summary>
     /// Base class for all API requests.
     /// </summary>
-    public abstract class Request()
+    public abstract class NuciApiRequest()
     {
         [Required]
         [JsonPropertyName("hmac")]

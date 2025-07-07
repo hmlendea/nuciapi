@@ -3,7 +3,7 @@ namespace NuciAPI.Responses
     /// <summary>
     /// Represents a successful response from the API.
     /// </summary>
-    public class SuccessResponse : Response
+    public class SuccessResponse : NuciApiResponse
     {
         /// <summary>
         /// Indicates whether the response was successful.
