@@ -15,7 +15,7 @@ namespace NuciAPI.Responses
         /// <summary>
         /// Default constructor for ErrorResponse.
         /// </summary>
-        public NuciApiErrorResponse() : base(ErrorResponseMessages.Default) { }
+        public NuciApiErrorResponse() : base(NuciApiResponseMessages.ErrorMessages.Default) { }
 
         /// <summary>
         /// Initializes a new instance of the ErrorResponse class with a specific error message.
@@ -46,11 +46,11 @@ namespace NuciAPI.Responses
         /// <summary>
         /// Provides a default ErrorResponse instance with a standard error message.
         /// </summary>
-        public static NuciApiErrorResponse Default => new(ErrorResponseMessages.Default);
+        public static NuciApiErrorResponse Default => new(NuciApiResponseMessages.ErrorMessages.Default);
 
         /// <summary>
         /// Provides a default ErrorResponse instance indicating an invalid request.
         /// </summary>
-        public static NuciApiErrorResponse InvalidRequest => new(ErrorResponseMessages.InvalidRequest);
+        public static NuciApiErrorResponse InvalidRequest => new(NuciApiResponseMessages.ErrorMessages.InvalidRequest);
     }
 }
