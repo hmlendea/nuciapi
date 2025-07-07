@@ -7,7 +7,7 @@ namespace NuciAPI.Responses
     /// Base class for all API responses.
     /// </summary>
     /// <param name="message">The message to include in the response.</param>
-    public abstract class Response(string message)
+    public abstract class NuciApiResponse(string message)
     {
         /// <summary>
         /// Indicates whether the response was successful.
