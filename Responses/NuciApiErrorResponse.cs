@@ -1,4 +1,5 @@
 using System;
+using System.Text.Json.Serialization;
 
 namespace NuciAPI.Responses
 {
@@ -10,6 +11,7 @@ namespace NuciAPI.Responses
         /// <summary>
         /// Indicates whether the request was successful.
         /// </summary>
+        [JsonPropertyName("success")]
         public override bool IsSuccessful => false;
 
         /// <summary>
