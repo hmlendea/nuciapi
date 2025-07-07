@@ -1,4 +1,5 @@
 using System;
+using System.Text.Json.Serialization;
 
 namespace NuciAPI.Responses
 {
@@ -8,9 +9,10 @@ namespace NuciAPI.Responses
     public sealed class NuciApiErrorResponse : NuciApiResponse
     {
         /// <summary>
-        /// Indicates whether the response was successful.
+        /// Indicates whether the request was successful.
         /// </summary>
-        public override bool Success => false;
+        [JsonPropertyName("success")]
+        public override bool IsSuccessful => false;
 
         /// <summary>
         /// Default constructor for ErrorResponse.
