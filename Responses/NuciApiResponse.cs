@@ -10,9 +10,9 @@ namespace NuciAPI.Responses
     public abstract class NuciApiResponse(string message)
     {
         /// <summary>
-        /// Indicates whether the response was successful.
+        /// Indicates whether the request was successful.
         /// </summary>
-        public abstract bool Success { get; }
+        public abstract bool IsSuccessful { get; }
 
         /// <summary>
         /// The message included in the response, typically used to convey success or error information.
