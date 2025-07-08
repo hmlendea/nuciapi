@@ -1,3 +1,4 @@
+using System;
 using System.Text.Json.Serialization;
 using NuciSecurity.HMAC;
 
@@ -28,6 +29,16 @@ namespace NuciAPI.Responses
         /// This property is used to verify the integrity and authenticity of the response.
         /// It should be generated using the server's secret key and the response data.
         /// </summary>
-        public string HmacToken { get; set; }
+        public string HmacToken { get; private set; }
+
+        public void SignHMAC(string secretKey)
+        {
+            if (string.IsNullOrEmpty(secretKey))
+            {
+                throw new ArgumentException("The secret key cannot be null or empty.", nameof(secretKey));
+            }
+
+            HmacToken = HmacEncoder.GenerateToken(this, secretKey);
+        }
     }
 }
