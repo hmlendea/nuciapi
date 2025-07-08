@@ -54,5 +54,10 @@ namespace NuciAPI.Responses
         /// Provides a default ErrorResponse instance indicating an invalid request.
         /// </summary>
         public static NuciApiErrorResponse InvalidRequest => new(NuciApiResponseMessages.ErrorMessages.InvalidRequest);
+
+        /// <summary>
+        /// Provides a default ErrorResponse instance indicating that the requested resource was not found.
+        /// </summary>
+        public static NuciApiErrorResponse NotFound => new(NuciApiResponseMessages.ErrorMessages.NotFound);
     }
 }

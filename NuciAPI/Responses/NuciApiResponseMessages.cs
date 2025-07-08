@@ -30,6 +30,11 @@ namespace NuciAPI.Responses
             /// Error message indicating that the request is invalid.
             /// </summary>
             public const string InvalidRequest = "Invalid request.";
+
+            /// <summary>
+            /// Error message indicating that the requested resource was not found.
+            /// </summary>
+            public const string NotFound = "The requested resource was not found.";
         }
     }
 }
