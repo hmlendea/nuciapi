@@ -13,12 +13,14 @@ namespace NuciAPI.Responses
         /// Indicates whether the request was successful.
         /// </summary>
         [JsonPropertyName("success")]
+        [HmacOrder(9999999)]
         public abstract bool IsSuccessful { get; }
 
         /// <summary>
         /// The message included in the response, typically used to convey success or error information.
         /// </summary>
         [JsonPropertyName("message")]
+        [HmacOrder(9999998)]
         public string Message { get; set; } = message;
 
         [JsonPropertyName("hmac")]
