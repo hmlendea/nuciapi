@@ -6,6 +6,10 @@ namespace NuciAPI.UnitTests
     public class NuciApiErrorResponseTests
     {
         [Test]
+        public void GivenAnErrorResponse_WhenGettingTheIsSuccessfulProperty_ThenFalseIsReturned()
+            => Assert.That(NuciApiErrorResponse.Default.IsSuccessful, Is.False);
+
+        [Test]
         public void GivenAnErrorResponse_WhenCreatingTheDefaultResponse_ThenTheExpectedMessageIsUsed()
             => Assert.That(NuciApiErrorResponse.Default.Message, Is.EqualTo(NuciApiResponseMessages.ErrorMessages.Default));
 
