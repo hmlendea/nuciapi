@@ -30,7 +30,7 @@ namespace NuciAPI.Responses
         /// This property is used to verify the integrity and authenticity of the response.
         /// It should be generated using the server's secret key and the response data.
         /// </summary>
-        public string HmacToken { get; private set; }
+        public string HmacToken { get; set; }
 
         /// <summary>
         /// Signs the response with an HMAC token using the provided secret key.

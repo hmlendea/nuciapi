@@ -18,7 +18,7 @@ namespace NuciAPI.Requests
         /// This property is used to verify the integrity and authenticity of the request.
         /// It should be generated using the server's secret key and the request data.
         /// </summary>
-        public string HmacToken { get; private set; }
+        public string HmacToken { get; set; }
 
         /// <summary>
         /// Signs the request with an HMAC token using the provided secret key.
