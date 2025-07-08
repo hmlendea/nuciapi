@@ -1,4 +1,3 @@
-using System;
 using System.Text.Json.Serialization;
 using NuciSecurity.HMAC;
 
@@ -32,13 +31,12 @@ namespace NuciAPI.Responses
         public string HmacToken { get; private set; }
 
         public void SignHMAC(string secretKey)
-        {
-            if (string.IsNullOrEmpty(secretKey))
-            {
-                throw new ArgumentException("The secret key cannot be null or empty.", nameof(secretKey));
-            }
+            => HmacToken = HmacEncoder.GenerateToken(this, secretKey);
 
-            HmacToken = HmacEncoder.GenerateToken(this, secretKey);
-        }
+        public bool HasValidHMAC(string secretKey)
+            => HmacValidator.IsTokenValid(HmacToken, this, secretKey);
+
+        public void ValidateHMAC(string secretKey)
+            => HmacValidator.Validate(HmacToken, this, secretKey);
     }
 }
