@@ -13,12 +13,14 @@ namespace NuciAPI.Responses
         /// Indicates whether the request was successful.
         /// </summary>
         [JsonPropertyName("success")]
+        [HmacOrder(9999999)]
         public abstract bool IsSuccessful { get; }
 
         /// <summary>
         /// The message included in the response, typically used to convey success or error information.
         /// </summary>
         [JsonPropertyName("message")]
+        [HmacOrder(9999998)]
         public string Message { get; set; } = message;
 
         [JsonPropertyName("hmac")]
@@ -28,6 +30,28 @@ namespace NuciAPI.Responses
         /// This property is used to verify the integrity and authenticity of the response.
         /// It should be generated using the server's secret key and the response data.
         /// </summary>
-        public string HmacToken { get; set; }
+        public string HmacToken { get; private set; }
+
+        /// <summary>
+        /// Signs the response with an HMAC token using the provided secret key.
+        /// </summary>
+        /// <param name="secretKey">The secret key used to generate the HMAC token.</param>
+        public void SignHMAC(string secretKey)
+            => HmacToken = HmacEncoder.GenerateToken(this, secretKey);
+
+        /// <summary>
+        /// Checks if the HMAC token is valid using the provided secret key.
+        /// </summary>
+        /// <param name="secretKey">The secret key used to validate the HMAC token.</param>
+        /// <returns>True if the HMAC token is valid; otherwise, false.</returns>
+        public bool HasValidHMAC(string secretKey)
+            => HmacValidator.IsTokenValid(HmacToken, this, secretKey);
+
+        /// <summary>
+        /// Validates the HMAC token using the provided secret key.
+        /// </summary>
+        /// <param name="secretKey">The secret key used to validate the HMAC token.</param>
+        public void ValidateHMAC(string secretKey)
+            => HmacValidator.Validate(HmacToken, this, secretKey);
     }
 }
