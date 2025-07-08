@@ -51,6 +51,11 @@ namespace NuciAPI.Responses
         public static NuciApiErrorResponse Default => new(NuciApiResponseMessages.ErrorMessages.Default);
 
         /// <summary>
+        /// Provides a default ErrorResponse instance indicating that the requested resource already exists.
+        /// </summary>
+        public static NuciApiErrorResponse AlreadyExists => new(NuciApiResponseMessages.ErrorMessages.AlreadyExists);
+
+        /// <summary>
         /// Provides a default ErrorResponse instance indicating an invalid request.
         /// </summary>
         public static NuciApiErrorResponse InvalidRequest => new(NuciApiResponseMessages.ErrorMessages.InvalidRequest);

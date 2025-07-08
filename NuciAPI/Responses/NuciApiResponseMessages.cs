@@ -27,6 +27,11 @@ namespace NuciAPI.Responses
             public const string Default = "An error occurred while processing your request.";
 
             /// <summary>
+            /// Error message indicating that the requested resource already exists.
+            /// </summary>
+            public const string AlreadyExists = "The requested resource already exists.";
+
+            /// <summary>
             /// Error message indicating that the request is invalid.
             /// </summary>
             public const string InvalidRequest = "Invalid request.";
