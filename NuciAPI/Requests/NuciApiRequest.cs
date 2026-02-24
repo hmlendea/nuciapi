@@ -1,4 +1,3 @@
-using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
 using NuciSecurity.HMAC;
@@ -10,8 +9,7 @@ namespace NuciAPI.Requests
     /// </summary>
     public abstract class NuciApiRequest()
     {
-        [Required]
-        [JsonPropertyName("hmac")]
+        [JsonIgnore]
         [HmacIgnore]
         /// <summary>
         /// HMAC token for request validation.
