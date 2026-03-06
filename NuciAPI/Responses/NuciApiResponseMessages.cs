@@ -34,17 +34,22 @@ namespace NuciAPI.Responses
             /// <summary>
             /// Error message indicating that the request failed due to authentication issues.
             /// </summary>
-            public const string AuthenticationFailure = "Authentication failed.";
+            public const string AuthenticationFailure = "The authentication has failed.";
 
             /// <summary>
             /// Error message indicating that the client closed the request.
             /// </summary>
-            public const string ClientClosedTheRequest = "Client closed the request.";
+            public const string ClientClosedTheRequest = "The client has closed the request.";
+
+            /// <summary>
+            /// Error message indicating that the request was forbidden.
+            /// </summary>
+            public const string Forbidden = "You do not have the required permission to access this resource.";
 
             /// <summary>
             /// Error message indicating that the request is invalid.
             /// </summary>
-            public const string InvalidRequest = "Invalid request.";
+            public const string InvalidRequest = "The request is invalid.";
 
             /// <summary>
             /// Error message indicating that the requested resource was not found.
@@ -52,19 +57,14 @@ namespace NuciAPI.Responses
             public const string NotFound = "The requested resource was not found.";
 
             /// <summary>
-            /// Error message indicating that the service is unavailable.
+            /// Error message indicating that the service dependency is unavailable.
             /// </summary>
-            public const string ServiceUnavailable = "A service dependency is currently unavailable.";
+            public const string ServiceDependencyUnavailable = "A service dependency is currently unavailable.";
 
             /// <summary>
             /// Error message indicating that the request timed out.
             /// </summary>
-            public const string Timeout = "The request timed out.";
-
-            /// <summary>
-            /// Error message indicating that the request was unauthorised.
-            /// </summary>
-            public const string Unauthorised = "Unauthorised request.";
+            public const string Timeout = "The request has timed out.";
         }
     }
 }

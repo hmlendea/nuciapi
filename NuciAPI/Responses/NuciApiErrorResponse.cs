@@ -35,7 +35,7 @@ namespace NuciAPI.Responses
             if (exception is AuthenticationException ||
                 exception is UnauthorizedAccessException)
             {
-                Message = NuciApiResponseMessages.ErrorMessages.Unauthorised;
+                Message = NuciApiResponseMessages.ErrorMessages.Forbidden;
             }
         }
 
@@ -74,6 +74,11 @@ namespace NuciAPI.Responses
         public static NuciApiErrorResponse ClientClosedRequest => new(NuciApiResponseMessages.ErrorMessages.ClientClosedTheRequest);
 
         /// <summary>
+        /// Provides a default ErrorResponse instance indicating that the request was forbidden.
+        /// </summary>
+        public static NuciApiErrorResponse Forbidden => new(NuciApiResponseMessages.ErrorMessages.Forbidden);
+
+        /// <summary>
         /// Provides a default ErrorResponse instance indicating an invalid request.
         /// </summary>
         public static NuciApiErrorResponse InvalidRequest => new(NuciApiResponseMessages.ErrorMessages.InvalidRequest);
@@ -84,18 +89,13 @@ namespace NuciAPI.Responses
         public static NuciApiErrorResponse NotFound => new(NuciApiResponseMessages.ErrorMessages.NotFound);
 
         /// <summary>
-        /// Provides a default ErrorResponse instance indicating that the service is unavailable.
+        /// Provides a default ErrorResponse instance indicating that the service dependency is unavailable.
         /// </summary>
-        public static NuciApiErrorResponse ServiceUnavailable => new(NuciApiResponseMessages.ErrorMessages.ServiceUnavailable);
+        public static NuciApiErrorResponse ServiceDependencyUnavailable => new(NuciApiResponseMessages.ErrorMessages.ServiceDependencyUnavailable);
 
         /// <summary>
         /// Provides a default ErrorResponse instance indicating that the request timed out.
         /// </summary>
         public static NuciApiErrorResponse Timeout => new(NuciApiResponseMessages.ErrorMessages.Timeout);
-
-        /// <summary>
-        /// Provides a default ErrorResponse instance indicating that the request was unauthorised.
-        /// </summary>
-        public static NuciApiErrorResponse Unauthorised => new(NuciApiResponseMessages.ErrorMessages.Unauthorised);
     }
 }
