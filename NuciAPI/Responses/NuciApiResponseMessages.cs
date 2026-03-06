@@ -47,6 +47,11 @@ namespace NuciAPI.Responses
             public const string NotFound = "The requested resource was not found.";
 
             /// <summary>
+            /// Error message indicating that the service is unavailable.
+            /// </summary>
+            public const string ServiceUnavailable = "A service dependency is currently unavailable.";
+
+            /// <summary>
             /// Error message indicating that the request timed out.
             /// </summary>
             public const string Timeout = "The request timed out.";
