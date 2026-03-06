@@ -40,6 +40,11 @@ namespace NuciAPI.Responses
             /// Error message indicating that the requested resource was not found.
             /// </summary>
             public const string NotFound = "The requested resource was not found.";
+
+            /// <summary>
+            /// Error message indicating that the request was unauthorised.
+            /// </summary>
+            public const string Unauthorised = "Unauthorised request.";
         }
     }
 }

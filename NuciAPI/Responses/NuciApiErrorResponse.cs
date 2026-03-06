@@ -1,4 +1,5 @@
 using System;
+using System.Security.Authentication;
 using System.Text.Json.Serialization;
 
 namespace NuciAPI.Responses
@@ -29,7 +30,14 @@ namespace NuciAPI.Responses
         /// Initializes a new instance of the ErrorResponse class with an exception.
         /// </summary>
         /// <param name="exception">The exception that occurred, which will be used to set the error message.</param>
-        public NuciApiErrorResponse(Exception exception) : base(exception.Message) { }
+        public NuciApiErrorResponse(Exception exception) : base(exception.Message)
+        {
+            if (exception is AuthenticationException ||
+                exception is UnauthorizedAccessException)
+            {
+                Message = NuciApiResponseMessages.ErrorMessages.Unauthorised;
+            }
+        }
 
         /// <summary>
         /// Creates a new ErrorResponse instance from a specific error message.
@@ -64,5 +72,10 @@ namespace NuciAPI.Responses
         /// Provides a default ErrorResponse instance indicating that the requested resource was not found.
         /// </summary>
         public static NuciApiErrorResponse NotFound => new(NuciApiResponseMessages.ErrorMessages.NotFound);
+
+        /// <summary>
+        /// Provides a default ErrorResponse instance indicating that the request was unauthorised.
+        /// </summary>
+        public static NuciApiErrorResponse Unauthorised => new(NuciApiResponseMessages.ErrorMessages.Unauthorised);
     }
 }
