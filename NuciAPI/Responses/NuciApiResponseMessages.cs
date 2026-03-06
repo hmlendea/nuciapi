@@ -32,9 +32,19 @@ namespace NuciAPI.Responses
             public const string AlreadyExists = "The requested resource already exists.";
 
             /// <summary>
+            /// Error message indicating that the request failed due to authentication issues.
+            /// </summary>
+            public const string AuthenticationFailure = "The authentication has failed.";
+
+            /// <summary>
+            /// Error message indicating that the client closed the request.
+            /// </summary>
+            public const string ClientClosedTheRequest = "The client has closed the request.";
+
+            /// <summary>
             /// Error message indicating that the request is invalid.
             /// </summary>
-            public const string InvalidRequest = "Invalid request.";
+            public const string InvalidRequest = "The request is invalid.";
 
             /// <summary>
             /// Error message indicating that the requested resource was not found.
@@ -42,14 +52,19 @@ namespace NuciAPI.Responses
             public const string NotFound = "The requested resource was not found.";
 
             /// <summary>
-            /// Error message indicating that the request timed out.
+            /// Error message indicating that the service dependency is unavailable.
             /// </summary>
-            public const string Timeout = "The request timed out.";
+            public const string ServiceDependencyUnavailable = "A service dependency is currently unavailable.";
 
             /// <summary>
-            /// Error message indicating that the request was unauthorised.
+            /// Error message indicating that the request timed out.
             /// </summary>
-            public const string Unauthorised = "Unauthorised request.";
+            public const string Timeout = "The request has timed out.";
+
+            /// <summary>
+            /// Error message indicating that the request was forbidden.
+            /// </summary>
+            public const string Unauthorised = "You do not have the required permission to perform this action.";
         }
     }
 }

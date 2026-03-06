@@ -64,6 +64,16 @@ namespace NuciAPI.Responses
         public static NuciApiErrorResponse AlreadyExists => new(NuciApiResponseMessages.ErrorMessages.AlreadyExists);
 
         /// <summary>
+        /// Provides a default ErrorResponse instance indicating that the request failed due to authentication issues.
+        /// </summary>
+        public static NuciApiErrorResponse AuthenticationFailure => new(NuciApiResponseMessages.ErrorMessages.AuthenticationFailure);
+
+        /// <summary>
+        /// Provides a default ErrorResponse instance indicating that the client closed the request.
+        /// </summary>
+        public static NuciApiErrorResponse ClientClosedTheRequest => new(NuciApiResponseMessages.ErrorMessages.ClientClosedTheRequest);
+
+        /// <summary>
         /// Provides a default ErrorResponse instance indicating an invalid request.
         /// </summary>
         public static NuciApiErrorResponse InvalidRequest => new(NuciApiResponseMessages.ErrorMessages.InvalidRequest);
@@ -74,13 +84,19 @@ namespace NuciAPI.Responses
         public static NuciApiErrorResponse NotFound => new(NuciApiResponseMessages.ErrorMessages.NotFound);
 
         /// <summary>
+        /// Provides a default ErrorResponse instance indicating that the service dependency is unavailable.
+        /// </summary>
+        public static NuciApiErrorResponse ServiceDependencyUnavailable => new(NuciApiResponseMessages.ErrorMessages.ServiceDependencyUnavailable);
+
+        /// <summary>
         /// Provides a default ErrorResponse instance indicating that the request timed out.
         /// </summary>
         public static NuciApiErrorResponse Timeout => new(NuciApiResponseMessages.ErrorMessages.Timeout);
 
         /// <summary>
-        /// Provides a default ErrorResponse instance indicating that the request was unauthorised.
+        /// Provides a default ErrorResponse instance indicating that the request was forbidden.
         /// </summary>
         public static NuciApiErrorResponse Unauthorised => new(NuciApiResponseMessages.ErrorMessages.Unauthorised);
+
     }
 }
