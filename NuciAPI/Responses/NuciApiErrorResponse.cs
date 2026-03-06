@@ -64,6 +64,11 @@ namespace NuciAPI.Responses
         public static NuciApiErrorResponse AlreadyExists => new(NuciApiResponseMessages.ErrorMessages.AlreadyExists);
 
         /// <summary>
+        /// Provides a default ErrorResponse instance indicating that the request failed due to authentication issues.
+        /// </summary>
+        public static NuciApiErrorResponse AuthenticationFailure => new(NuciApiResponseMessages.ErrorMessages.AuthenticationFailure);
+
+        /// <summary>
         /// Provides a default ErrorResponse instance indicating an invalid request.
         /// </summary>
         public static NuciApiErrorResponse InvalidRequest => new(NuciApiResponseMessages.ErrorMessages.InvalidRequest);

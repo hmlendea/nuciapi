@@ -32,6 +32,11 @@ namespace NuciAPI.Responses
             public const string AlreadyExists = "The requested resource already exists.";
 
             /// <summary>
+            /// Error message indicating that the request failed due to authentication issues.
+            /// </summary>
+            public const string AuthenticationFailure = "Authentication failed.";
+
+            /// <summary>
             /// Error message indicating that the request is invalid.
             /// </summary>
             public const string InvalidRequest = "Invalid request.";
