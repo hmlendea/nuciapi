@@ -74,6 +74,11 @@ namespace NuciAPI.Responses
         public static NuciApiErrorResponse NotFound => new(NuciApiResponseMessages.ErrorMessages.NotFound);
 
         /// <summary>
+        /// Provides a default ErrorResponse instance indicating that the request timed out.
+        /// </summary>
+        public static NuciApiErrorResponse Timeout => new(NuciApiResponseMessages.ErrorMessages.Timeout);
+
+        /// <summary>
         /// Provides a default ErrorResponse instance indicating that the request was unauthorised.
         /// </summary>
         public static NuciApiErrorResponse Unauthorised => new(NuciApiResponseMessages.ErrorMessages.Unauthorised);
