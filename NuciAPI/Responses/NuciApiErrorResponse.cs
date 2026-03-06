@@ -69,6 +69,11 @@ namespace NuciAPI.Responses
         public static NuciApiErrorResponse AuthenticationFailure => new(NuciApiResponseMessages.ErrorMessages.AuthenticationFailure);
 
         /// <summary>
+        /// Provides a default ErrorResponse instance indicating that the client closed the request.
+        /// </summary>
+        public static NuciApiErrorResponse ClientClosedRequest => new(NuciApiResponseMessages.ErrorMessages.ClientClosedTheRequest);
+
+        /// <summary>
         /// Provides a default ErrorResponse instance indicating an invalid request.
         /// </summary>
         public static NuciApiErrorResponse InvalidRequest => new(NuciApiResponseMessages.ErrorMessages.InvalidRequest);

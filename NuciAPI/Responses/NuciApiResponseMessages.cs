@@ -37,6 +37,11 @@ namespace NuciAPI.Responses
             public const string AuthenticationFailure = "Authentication failed.";
 
             /// <summary>
+            /// Error message indicating that the client closed the request.
+            /// </summary>
+            public const string ClientClosedTheRequest = "Client closed the request.";
+
+            /// <summary>
             /// Error message indicating that the request is invalid.
             /// </summary>
             public const string InvalidRequest = "Invalid request.";
