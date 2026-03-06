@@ -42,11 +42,6 @@ namespace NuciAPI.Responses
             public const string ClientClosedTheRequest = "The client has closed the request.";
 
             /// <summary>
-            /// Error message indicating that the request was forbidden.
-            /// </summary>
-            public const string Forbidden = "You do not have the required permission to access this resource.";
-
-            /// <summary>
             /// Error message indicating that the request is invalid.
             /// </summary>
             public const string InvalidRequest = "The request is invalid.";
@@ -65,6 +60,11 @@ namespace NuciAPI.Responses
             /// Error message indicating that the request timed out.
             /// </summary>
             public const string Timeout = "The request has timed out.";
+
+            /// <summary>
+            /// Error message indicating that the request was forbidden.
+            /// </summary>
+            public const string Unauthorised = "You do not have the required permission to perform this action.";
         }
     }
 }

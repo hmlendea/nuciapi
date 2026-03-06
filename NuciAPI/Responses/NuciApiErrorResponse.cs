@@ -35,7 +35,7 @@ namespace NuciAPI.Responses
             if (exception is AuthenticationException ||
                 exception is UnauthorizedAccessException)
             {
-                Message = NuciApiResponseMessages.ErrorMessages.Forbidden;
+                Message = NuciApiResponseMessages.ErrorMessages.Unauthorised;
             }
         }
 
@@ -71,12 +71,7 @@ namespace NuciAPI.Responses
         /// <summary>
         /// Provides a default ErrorResponse instance indicating that the client closed the request.
         /// </summary>
-        public static NuciApiErrorResponse ClientClosedRequest => new(NuciApiResponseMessages.ErrorMessages.ClientClosedTheRequest);
-
-        /// <summary>
-        /// Provides a default ErrorResponse instance indicating that the request was forbidden.
-        /// </summary>
-        public static NuciApiErrorResponse Forbidden => new(NuciApiResponseMessages.ErrorMessages.Forbidden);
+        public static NuciApiErrorResponse ClientClosedTheRequest => new(NuciApiResponseMessages.ErrorMessages.ClientClosedTheRequest);
 
         /// <summary>
         /// Provides a default ErrorResponse instance indicating an invalid request.
@@ -97,5 +92,11 @@ namespace NuciAPI.Responses
         /// Provides a default ErrorResponse instance indicating that the request timed out.
         /// </summary>
         public static NuciApiErrorResponse Timeout => new(NuciApiResponseMessages.ErrorMessages.Timeout);
+
+        /// <summary>
+        /// Provides a default ErrorResponse instance indicating that the request was forbidden.
+        /// </summary>
+        public static NuciApiErrorResponse Unauthorised => new(NuciApiResponseMessages.ErrorMessages.Unauthorised);
+
     }
 }
