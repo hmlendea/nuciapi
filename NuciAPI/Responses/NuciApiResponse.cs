@@ -7,7 +7,8 @@ namespace NuciAPI.Responses
     /// Base class for all API responses.
     /// </summary>
     /// <param name="message">The message to include in the response.</param>
-    public abstract class NuciApiResponse(string message)
+    /// <param name="code">The code to include in the response.</param>
+    public abstract class NuciApiResponse(string message, string code)
     {
         /// <summary>
         /// Indicates whether the request was successful.
@@ -22,6 +23,13 @@ namespace NuciAPI.Responses
         [JsonPropertyName("message")]
         [HmacOrder(9999998)]
         public string Message { get; set; } = message;
+
+        /// <summary>
+        /// The code included in the response, typically used to convey success or error information.
+        /// </summary>
+        [JsonPropertyName("code")]
+        [HmacOrder(9999997)]
+        public string Code { get; set; } = code;
 
         [JsonPropertyName("hmac")]
         [HmacIgnore]

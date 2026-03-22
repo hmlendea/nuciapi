@@ -16,13 +16,17 @@ namespace NuciAPI.Responses
         /// <summary>
         /// Default constructor for SuccessResponse.
         /// </summary>
-        public NuciApiSuccessResponse() : base(NuciApiResponseMessages.SuccessMessages.Default) { }
+        public NuciApiSuccessResponse() : base(
+            NuciApiResponseMessages.SuccessMessages.Default,
+            NuciApiResponseCodes.SuccessCodes.Default) { }
 
         /// <summary>
         /// Initializes a new instance of the SuccessResponse class with a specific message.
         /// </summary>
         /// <param name="message"></param>
-        public NuciApiSuccessResponse(string message) : base(message) { }
+        public NuciApiSuccessResponse(string message) : base(
+            message,
+            NuciApiResponseCodes.SuccessCodes.Default) { }
 
         /// <summary>
         /// Creates a new SuccessResponse instance from a specific message.
