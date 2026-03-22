@@ -74,6 +74,11 @@ namespace NuciAPI.Responses
         public static NuciApiErrorResponse ClientClosedTheRequest => new(NuciApiResponseMessages.ErrorMessages.ClientClosedTheRequest);
 
         /// <summary>
+        /// Provides a default ErrorResponse instance indicating that an internal server error occurred.
+        /// </summary>
+        public static NuciApiErrorResponse InternalServerError => new(NuciApiResponseMessages.ErrorMessages.InternalServerError);
+
+        /// <summary>
         /// Provides a default ErrorResponse instance indicating an invalid request.
         /// </summary>
         public static NuciApiErrorResponse InvalidRequest => new(NuciApiResponseMessages.ErrorMessages.InvalidRequest);
