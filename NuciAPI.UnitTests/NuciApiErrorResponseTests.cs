@@ -14,6 +14,10 @@ namespace NuciAPI.UnitTests
             => Assert.That(NuciApiErrorResponse.Default.Message, Is.EqualTo(NuciApiResponseMessages.ErrorMessages.Default));
 
         [Test]
+        public void GivenAnErrorResponse_WhenCreatingTheDefaultResponse_ThenTheExpectedCodeIsUsed()
+            => Assert.That(NuciApiErrorResponse.Default.Code, Is.EqualTo(NuciApiResponseCodes.ErrorCodes.Default));
+
+        [Test]
         public void GivenAnErrorResponse_WhenCreatingTheInvalidRequestResponse_ThenTheExpectedMessageIsUsed()
             => Assert.That(NuciApiErrorResponse.InvalidRequest.Message, Is.EqualTo(NuciApiResponseMessages.ErrorMessages.InvalidRequest));
     }
