@@ -44,7 +44,7 @@ namespace NuciAPI.Responses
             /// <summary>
             /// Error message indicating that an internal server error occurred.
             /// </summary>
-            public const string InternalServerError = "An internal server error occurred.";
+            public const string InternalServerError = "An internal server error has occurred.";
 
             /// <summary>
             /// Error message indicating that the request is invalid.
