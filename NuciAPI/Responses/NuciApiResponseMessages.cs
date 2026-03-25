@@ -32,6 +32,11 @@ namespace NuciAPI.Responses
             public const string AlreadyExists = "The requested resource already exists.";
 
             /// <summary>
+            /// Error message indicating that the request has already been processed.
+            /// </summary>
+            public const string AlreadyProcessed = "The request has already been processed.";
+
+            /// <summary>
             /// Error message indicating that the request failed due to authentication issues.
             /// </summary>
             public const string AuthenticationFailure = "The authentication has failed.";

@@ -51,6 +51,13 @@ namespace NuciAPI.Responses
             NuciApiResponseCodes.ErrorCodes.AlreadyExists);
 
         /// <summary>
+        /// Provides a default ErrorResponse instance indicating that the request has already been processed.
+        /// </summary>
+        public static NuciApiErrorResponse AlreadyProcessed => new(
+            NuciApiResponseMessages.ErrorMessages.AlreadyProcessed,
+            NuciApiResponseCodes.ErrorCodes.AlreadyProcessed);
+
+        /// <summary>
         /// Provides a default ErrorResponse instance indicating that the request failed due to authentication issues.
         /// </summary>
         public static NuciApiErrorResponse AuthenticationFailure => new(
