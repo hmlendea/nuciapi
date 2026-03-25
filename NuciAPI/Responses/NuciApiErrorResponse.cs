@@ -100,6 +100,13 @@ namespace NuciAPI.Responses
             NuciApiResponseCodes.ErrorCodes.NotFound);
 
         /// <summary>
+        /// Provides a default ErrorResponse instance indicating that the requested functionality is not implemented.
+        /// </summary>
+        public static NuciApiErrorResponse NotImplemented => new(
+            NuciApiResponseMessages.ErrorMessages.NotImplemented,
+            NuciApiResponseCodes.ErrorCodes.NotImplemented);
+
+        /// <summary>
         /// Provides a default ErrorResponse instance indicating that the service dependency is unavailable.
         /// </summary>
         public static NuciApiErrorResponse ServiceDependencyUnavailable => new(

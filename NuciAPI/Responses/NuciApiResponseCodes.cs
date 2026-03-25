@@ -67,6 +67,11 @@ namespace NuciAPI.Responses
             public const string NotFound = "NOT_FOUND";
 
             /// <summary>
+            /// Error code indicating that the requested functionality is not implemented.
+            /// </summary>
+            public const string NotImplemented = "NOT_IMPLEMENTED";
+
+            /// <summary>
             /// Error code indicating that the service dependency is unavailable.
             /// </summary>
             public const string ServiceDependencyUnavailable = "SERVICE_DEPENDENCY_UNAVAILABLE";
