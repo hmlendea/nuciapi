@@ -58,6 +58,13 @@ namespace NuciAPI.Responses
             NuciApiResponseCodes.ErrorCodes.AuthenticationFailure);
 
         /// <summary>
+        /// Provides a default ErrorResponse instance indicating that the request failed due to a bad request, such as invalid input or missing parameters.
+        /// </summary>
+        public static NuciApiErrorResponse BadRequest => new(
+            NuciApiResponseMessages.ErrorMessages.BadRequest,
+            NuciApiResponseCodes.ErrorCodes.BadRequest);
+
+        /// <summary>
         /// Provides a default ErrorResponse instance indicating that the client closed the request.
         /// </summary>
         public static NuciApiErrorResponse ClientClosedTheRequest => new(

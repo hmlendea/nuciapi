@@ -32,6 +32,11 @@ namespace NuciAPI.Responses
             public const string AlreadyExists = "ALREADY_EXISTS";
 
             /// <summary>
+            /// Error code indicating that the request failed due to a bad request, such as invalid input or missing parameters.
+            /// </summary>
+            public const string BadRequest = "BAD_REQUEST";
+
+            /// <summary>
             /// Error code indicating that the request failed due to authentication issues.
             /// </summary>
             public const string AuthenticationFailure = "AUTHENTICATION_FAILURE";

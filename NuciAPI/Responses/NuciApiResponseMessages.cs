@@ -37,6 +37,11 @@ namespace NuciAPI.Responses
             public const string AuthenticationFailure = "The authentication has failed.";
 
             /// <summary>
+            /// Error message indicating that the request failed due to a bad request, such as invalid input or missing parameters.
+            /// </summary>
+            public const string BadRequest = "The request had failed due to invalid or missing parameters.";
+
+            /// <summary>
             /// Error message indicating that the client closed the request.
             /// </summary>
             public const string ClientClosedTheRequest = "The client has closed the request.";
