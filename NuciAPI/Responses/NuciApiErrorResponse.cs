@@ -51,11 +51,25 @@ namespace NuciAPI.Responses
             NuciApiResponseCodes.ErrorCodes.AlreadyExists);
 
         /// <summary>
+        /// Provides a default ErrorResponse instance indicating that the request has already been processed.
+        /// </summary>
+        public static NuciApiErrorResponse AlreadyProcessed => new(
+            NuciApiResponseMessages.ErrorMessages.AlreadyProcessed,
+            NuciApiResponseCodes.ErrorCodes.AlreadyProcessed);
+
+        /// <summary>
         /// Provides a default ErrorResponse instance indicating that the request failed due to authentication issues.
         /// </summary>
         public static NuciApiErrorResponse AuthenticationFailure => new(
             NuciApiResponseMessages.ErrorMessages.AuthenticationFailure,
             NuciApiResponseCodes.ErrorCodes.AuthenticationFailure);
+
+        /// <summary>
+        /// Provides a default ErrorResponse instance indicating that the request failed due to a bad request, such as invalid input or missing parameters.
+        /// </summary>
+        public static NuciApiErrorResponse BadRequest => new(
+            NuciApiResponseMessages.ErrorMessages.BadRequest,
+            NuciApiResponseCodes.ErrorCodes.BadRequest);
 
         /// <summary>
         /// Provides a default ErrorResponse instance indicating that the client closed the request.
@@ -84,6 +98,13 @@ namespace NuciAPI.Responses
         public static NuciApiErrorResponse NotFound => new(
             NuciApiResponseMessages.ErrorMessages.NotFound,
             NuciApiResponseCodes.ErrorCodes.NotFound);
+
+        /// <summary>
+        /// Provides a default ErrorResponse instance indicating that the requested functionality is not implemented.
+        /// </summary>
+        public static NuciApiErrorResponse NotImplemented => new(
+            NuciApiResponseMessages.ErrorMessages.NotImplemented,
+            NuciApiResponseCodes.ErrorCodes.NotImplemented);
 
         /// <summary>
         /// Provides a default ErrorResponse instance indicating that the service dependency is unavailable.

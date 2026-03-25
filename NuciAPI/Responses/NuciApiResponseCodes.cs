@@ -32,6 +32,16 @@ namespace NuciAPI.Responses
             public const string AlreadyExists = "ALREADY_EXISTS";
 
             /// <summary>
+            /// Error code indicating that the request has already been processed.
+            /// </summary>
+            public const string AlreadyProcessed = "ALREADY_PROCESSED";
+
+            /// <summary>
+            /// Error code indicating that the request failed due to a bad request, such as invalid input or missing parameters.
+            /// </summary>
+            public const string BadRequest = "BAD_REQUEST";
+
+            /// <summary>
             /// Error code indicating that the request failed due to authentication issues.
             /// </summary>
             public const string AuthenticationFailure = "AUTHENTICATION_FAILURE";
@@ -55,6 +65,11 @@ namespace NuciAPI.Responses
             /// Error code indicating that the requested resource was not found.
             /// </summary>
             public const string NotFound = "NOT_FOUND";
+
+            /// <summary>
+            /// Error code indicating that the requested functionality is not implemented.
+            /// </summary>
+            public const string NotImplemented = "NOT_IMPLEMENTED";
 
             /// <summary>
             /// Error code indicating that the service dependency is unavailable.
