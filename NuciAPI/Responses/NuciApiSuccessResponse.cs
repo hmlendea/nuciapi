@@ -67,6 +67,13 @@ namespace NuciAPI.Responses
             NuciApiResponseCodes.SuccessCodes.Deleted);
 
         /// <summary>
+        /// Creates a new NuciApiSuccessResponse instance with a message indicating that a resource was successfully fetched.
+        /// </summary>
+        public static NuciApiSuccessResponse Fetched => new(
+            NuciApiResponseMessages.SuccessMessages.Fetched,
+            NuciApiResponseCodes.SuccessCodes.Fetched);
+
+        /// <summary>
         /// Creates a new NuciApiSuccessResponse instance with a message indicating that a resource was not updated.
         /// </summary>
         public static NuciApiSuccessResponse NotUpdated => new(

@@ -26,6 +26,11 @@ namespace NuciAPI.Responses
             public const string Deleted = "The resource was successfully deleted.";
 
             /// <summary>
+            /// Success message indicating that a resource was successfully fetched.
+            /// </summary>
+            public const string Fetched = "The resource was successfully fetched.";
+
+            /// <summary>
             /// Success message indicating that a resource was not updated.
             /// </summary>
             public const string NotUpdated = "The resource was not updated, as it already has the same content.";
