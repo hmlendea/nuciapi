@@ -60,14 +60,21 @@ namespace NuciAPI.Responses
             NuciApiResponseCodes.SuccessCodes.Created);
 
         /// <summary>
-        /// Creates a new NuciApiSuccessResponse instance with a message indicating that the resource was not updated.
+        /// Creates a new NuciApiSuccessResponse instance with a message indicating that a resource was successfully deleted.
+        /// </summary>
+        public static NuciApiSuccessResponse Deleted => new(
+            NuciApiResponseMessages.SuccessMessages.Deleted,
+            NuciApiResponseCodes.SuccessCodes.Deleted);
+
+        /// <summary>
+        /// Creates a new NuciApiSuccessResponse instance with a message indicating that a resource was not updated.
         /// </summary>
         public static NuciApiSuccessResponse NotUpdated => new(
             NuciApiResponseMessages.SuccessMessages.NotUpdated,
             NuciApiResponseCodes.SuccessCodes.NotUpdated);
 
         /// <summary>
-        /// Creates a new NuciApiSuccessResponse instance with a message indicating that the resource was successfully updated.
+        /// Creates a new NuciApiSuccessResponse instance with a message indicating that a resource was successfully updated.
         /// </summary>
         public static NuciApiSuccessResponse Updated => new(
             NuciApiResponseMessages.SuccessMessages.Updated,

@@ -21,12 +21,17 @@ namespace NuciAPI.Responses
             public const string Created = "SUCCESS_CREATED";
 
             /// <summary>
-            /// Success code indicating that the resource was not updated.
+            /// Success code indicating that a resource was successfully deleted.
+            /// </summary>
+            public const string Deleted = "DELETED";
+
+            /// <summary>
+            /// Success code indicating that a resource was not updated.
             /// </summary>
             public const string NotUpdated = "SUCCESS_NOT_UPDATED";
 
             /// <summary>
-            /// Success code indicating that the resource was successfully updated.
+            /// Success code indicating that a resource was successfully updated.
             /// </summary>
             public const string Updated = "SUCCESS_UPDATED";
         }
