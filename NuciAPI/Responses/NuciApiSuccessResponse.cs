@@ -53,10 +53,17 @@ namespace NuciAPI.Responses
             NuciApiResponseCodes.SuccessCodes.Default);
 
         /// <summary>
+        /// Creates a new SuccessResponse instance with a message indicating that a new resource was successfully created.
+        /// </summary>
+        public static NuciApiSuccessResponse Created => new(
+            NuciApiResponseMessages.SuccessMessages.Created,
+            NuciApiResponseCodes.SuccessCodes.Created);
+
+        /// <summary>
         /// Creates a new SuccessResponse instance with a message indicating that the operation completed successfully but no changes were made.
         /// </summary>
-        public static NuciApiSuccessResponse NoChange => new(
-            NuciApiResponseMessages.SuccessMessages.NoChange,
-            NuciApiResponseCodes.SuccessCodes.NoChange);
+        public static NuciApiSuccessResponse NoChanges => new(
+            NuciApiResponseMessages.SuccessMessages.NoChanges,
+            NuciApiResponseCodes.SuccessCodes.NoChanges);
     }
 }

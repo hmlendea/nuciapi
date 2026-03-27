@@ -16,9 +16,14 @@ namespace NuciAPI.Responses
             public const string Default = "Operation completed successfully.";
 
             /// <summary>
+            /// Success message indicating that a new resource was successfully created.
+            /// </summary>
+            public const string Created = "The new resource was successfully created.";
+
+            /// <summary>
             /// Success message indicating that the operation completed successfully but no changes were made.
             /// </summary>
-            public const string NoChange = "Operation completed successfully, but no changes were made.";
+            public const string NoChanges = "Operation completed successfully, but no changes were made.";
         }
 
         /// <summary>
