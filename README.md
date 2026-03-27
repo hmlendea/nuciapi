@@ -28,6 +28,7 @@ Install-Package NuciAPI
 - Base request type with built-in HMAC signing and validation
 - Base response type with built-in HMAC signing and validation
 - Standard success and error response models
+- Predefined success responses for common CRUD-style operations
 - Reusable response codes and human-readable messages
 - JSON-friendly response shape using `success`, `message`, `code`, and `hmac`
 
@@ -68,6 +69,13 @@ Two concrete response types are included:
 
 - `NuciApiSuccessResponse`
 - `NuciApiErrorResponse`
+
+The library also exposes shared constants through:
+
+- `NuciApiResponseCodes.SuccessCodes`
+- `NuciApiResponseCodes.ErrorCodes`
+- `NuciApiResponseMessages.SuccessMessages`
+- `NuciApiResponseMessages.ErrorMessages`
 
 # Usage
 
@@ -110,6 +118,16 @@ var response = NuciApiSuccessResponse.Default;
 response.SignHMAC(secretKey);
 ```
 
+For common operations, you can use the built-in success helpers directly:
+
+```csharp
+var createdResponse = NuciApiSuccessResponse.Created;
+var updatedResponse = NuciApiSuccessResponse.Updated;
+var deletedResponse = NuciApiSuccessResponse.Deleted;
+var fetchedResponse = NuciApiSuccessResponse.Fetched;
+var notUpdatedResponse = NuciApiSuccessResponse.NotUpdated;
+```
+
 ## Return a standard error response
 
 ```csharp
@@ -143,12 +161,25 @@ public class OrderCreatedResponse : NuciApiResponse
 ## Success
 
 - `NuciApiSuccessResponse.Default`
+- `NuciApiSuccessResponse.Created`
+- `NuciApiSuccessResponse.Deleted`
+- `NuciApiSuccessResponse.Fetched`
+- `NuciApiSuccessResponse.NotUpdated`
+- `NuciApiSuccessResponse.Updated`
 - `NuciApiSuccessResponse.FromMessage(string message)`
 
 Default success payload values:
 
 - message: `Operation completed successfully.`
 - code: `SUCCESS`
+
+Built-in success payload values:
+
+- `Created`: `The new resource was successfully created.` / `CREATED`
+- `Deleted`: `The resource was successfully deleted.` / `DELETED`
+- `Fetched`: `The resource was successfully fetched.` / `FETCHED`
+- `NotUpdated`: `The resource was not updated, as it already has the same content.` / `NOT_UPDATED`
+- `Updated`: `The resource was successfully updated.` / `UPDATED`
 
 ## Errors
 
@@ -172,6 +203,20 @@ If you need a custom message while keeping the default error code, use:
 
 ```csharp
 var response = NuciApiErrorResponse.FromMessage("The supplied payload is not acceptable.");
+```
+
+## Shared constants
+
+If you need to build custom response types while staying consistent with the built-in contracts, use the exported message and code constants:
+
+```csharp
+using NuciAPI.Responses;
+
+var successCode = NuciApiResponseCodes.SuccessCodes.Created;
+var successMessage = NuciApiResponseMessages.SuccessMessages.Created;
+
+var errorCode = NuciApiResponseCodes.ErrorCodes.NotFound;
+var errorMessage = NuciApiResponseMessages.ErrorMessages.NotFound;
 ```
 
 # Response shape
