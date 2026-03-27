@@ -258,7 +258,7 @@ dotnet test NuciAPI.sln
 
 ## Target Framework
 
-The current package targets `.NET 10`.
+The current package targets `.NET 10.0`.
 
 ## License
 
