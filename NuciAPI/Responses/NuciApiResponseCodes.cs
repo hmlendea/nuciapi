@@ -14,6 +14,11 @@ namespace NuciAPI.Responses
             /// Default success code used when no specific code is provided.
             /// </summary>
             public const string Default = "SUCCESS";
+
+            /// <summary>
+            /// Success code indicating that the operation completed successfully but no changes were made.
+            /// </summary>
+            public const string NoChange = "SUCCESS_NO_CHANGE";
         }
 
         /// <summary>

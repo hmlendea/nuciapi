@@ -23,10 +23,20 @@ namespace NuciAPI.Responses
         /// <summary>
         /// Initializes a new instance of the SuccessResponse class with a specific message.
         /// </summary>
-        /// <param name="message"></param>
+        /// <param name="message">The message to include in the response.</param>
         public NuciApiSuccessResponse(string message) : base(
             message,
             NuciApiResponseCodes.SuccessCodes.Default) { }
+
+        /// <summary>
+        /// Initializes a new instance of the SuccessResponse class with a specific message.
+        /// </summary>
+        /// <param name="message">The message to include in the response.</param>
+        /// <param name="code">The code to include in the response.</param>
+        public NuciApiSuccessResponse(
+            string message,
+            string code)
+            : base(message, code) { }
 
         /// <summary>
         /// Creates a new SuccessResponse instance from a specific message.
@@ -38,6 +48,15 @@ namespace NuciAPI.Responses
         /// <summary>
         /// Creates a new SuccessResponse instance with a default success message.
         /// </summary>
-        public static NuciApiSuccessResponse Default => FromMessage(NuciApiResponseMessages.SuccessMessages.Default);
+        public static NuciApiSuccessResponse Default => new(
+            NuciApiResponseMessages.SuccessMessages.Default,
+            NuciApiResponseCodes.SuccessCodes.Default);
+
+        /// <summary>
+        /// Creates a new SuccessResponse instance with a message indicating that the operation completed successfully but no changes were made.
+        /// </summary>
+        public static NuciApiSuccessResponse NoChange => new(
+            NuciApiResponseMessages.SuccessMessages.NoChange,
+            NuciApiResponseCodes.SuccessCodes.NoChange);
     }
 }

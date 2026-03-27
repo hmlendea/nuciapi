@@ -14,6 +14,11 @@ namespace NuciAPI.Responses
             /// Default success message used when no specific message is provided.
             /// </summary>
             public const string Default = "Operation completed successfully.";
+
+            /// <summary>
+            /// Success message indicating that the operation completed successfully but no changes were made.
+            /// </summary>
+            public const string NoChange = "Operation completed successfully, but no changes were made.";
         }
 
         /// <summary>
