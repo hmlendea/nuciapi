@@ -2,6 +2,8 @@
 
 # NuciAPI
 
+## About
+
 NuciAPI is a small .NET library for building consistent API contracts around two common concerns:
 
 - strongly-typed request and response models
@@ -9,21 +11,21 @@ NuciAPI is a small .NET library for building consistent API contracts around two
 
 It provides base classes for requests and responses, plus a set of standard success and error response helpers that can be reused across services.
 
-# Installation
+## Installation
 
 [![Get it from NuGet](https://raw.githubusercontent.com/hmlendea/readme-assets/master/badges/stores/nuget.png)](https://nuget.org/packages/NuciAPI)
 
-**.NET CLI**:
+### .NET CLI
 ```bash
 dotnet add package NuciAPI
 ```
 
-**Package Manager**:
+## Package Manager
 ```powershell
 Install-Package NuciAPI
 ```
 
-# Features
+## Features
 
 - Base request type with built-in HMAC signing and validation
 - Base response type with built-in HMAC signing and validation
@@ -32,13 +34,13 @@ Install-Package NuciAPI
 - Reusable response codes and human-readable messages
 - JSON-friendly response shape using `success`, `message`, `code`, and `hmac`
 
-# Target framework
+## Target framework
 
 The package currently targets `.NET 10.0`.
 
-# Package contents
+## Package contents
 
-## Requests
+### Requests
 
 `NuciApiRequest` is the base type for API request models.
 
@@ -51,7 +53,7 @@ It provides:
 
 The HMAC token itself is ignored by JSON serialization on the base request type, which is useful when the signature is transported outside the request body.
 
-## Responses
+### Responses
 
 `NuciApiResponse` is the base type for API responses.
 
@@ -77,9 +79,9 @@ The library also exposes shared constants through:
 - `NuciApiResponseMessages.SuccessMessages`
 - `NuciApiResponseMessages.ErrorMessages`
 
-# Usage
+## Usage
 
-## Define a request
+### Define a request
 
 ```csharp
 using NuciAPI.Requests;
@@ -91,7 +93,7 @@ public class CreateOrderRequest : NuciApiRequest
 }
 ```
 
-## Sign and validate a request
+### Sign and validate a request
 
 ```csharp
 var secretKey = "super-secret-key";
@@ -109,7 +111,7 @@ bool isValid = request.HasValidHMAC(secretKey);
 request.ValidateHMAC(secretKey);
 ```
 
-## Return a success response
+### Return a success response
 
 ```csharp
 using NuciAPI.Responses;
@@ -128,7 +130,7 @@ var fetchedResponse = NuciApiSuccessResponse.Fetched;
 var notUpdatedResponse = NuciApiSuccessResponse.NotUpdated;
 ```
 
-## Return a standard error response
+### Return a standard error response
 
 ```csharp
 using NuciAPI.Responses;
@@ -137,7 +139,7 @@ var response = NuciApiErrorResponse.NotFound;
 response.SignHMAC(secretKey);
 ```
 
-## Create a custom response type
+### Create a custom response type
 
 ```csharp
 using NuciAPI.Responses;
@@ -156,9 +158,9 @@ public class OrderCreatedResponse : NuciApiResponse
 }
 ```
 
-# Built-in responses
+## Built-in responses
 
-## Success
+### Success
 
 - `NuciApiSuccessResponse.Default`
 - `NuciApiSuccessResponse.Created`
@@ -181,7 +183,7 @@ Built-in success payload values:
 - `NotUpdated`: `The resource was not updated, as it already has the same content.` / `NOT_UPDATED`
 - `Updated`: `The resource was successfully updated.` / `UPDATED`
 
-## Errors
+### Errors
 
 `NuciApiErrorResponse` includes a default response plus a set of common predefined errors:
 
@@ -205,7 +207,7 @@ If you need a custom message while keeping the default error code, use:
 var response = NuciApiErrorResponse.FromMessage("The supplied payload is not acceptable.");
 ```
 
-## Shared constants
+### Shared constants
 
 If you need to build custom response types while staying consistent with the built-in contracts, use the exported message and code constants:
 
@@ -219,7 +221,7 @@ var errorCode = NuciApiResponseCodes.ErrorCodes.NotFound;
 var errorMessage = NuciApiResponseMessages.ErrorMessages.NotFound;
 ```
 
-# Response shape
+## Response shape
 
 Responses are designed to serialize to a predictable structure similar to:
 
@@ -232,7 +234,7 @@ Responses are designed to serialize to a predictable structure similar to:
 }
 ```
 
-# HMAC behavior
+## HMAC behavior
 
 HMAC support is implemented through the `NuciSecurity.HMAC` package.
 
@@ -244,20 +246,20 @@ When signing:
 
 This makes it suitable for detecting payload tampering between producer and consumer, as long as both sides share the same secret.
 
-# Development
+## Development
 
-## Build
+### Build
 
 ```bash
 dotnet build NuciAPI.sln
 ```
 
-## Test
+### Test
 
 ```bash
 dotnet test NuciAPI.sln
 ```
 
-# License
+## License
 
 This project is licensed under the `GPL-3.0-or-later` license. See `LICENSE` for details.
