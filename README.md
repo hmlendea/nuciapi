@@ -11,6 +11,15 @@ NuciAPI is a small .NET library for building consistent API contracts around two
 
 It provides base classes for requests and responses, plus a set of standard success and error response helpers that can be reused across services.
 
+## Features
+
+- Base request type with built-in HMAC signing and validation
+- Base response type with built-in HMAC signing and validation
+- Standard success and error response models
+- Predefined success responses for common CRUD-style operations
+- Reusable response codes and human-readable messages
+- JSON-friendly response shape using `success`, `message`, `code`, and `hmac`
+
 ## Installation
 
 [![Get it from NuGet](https://raw.githubusercontent.com/hmlendea/readme-assets/master/badges/stores/nuget.png)](https://nuget.org/packages/NuciAPI)
@@ -24,19 +33,6 @@ dotnet add package NuciAPI
 ```powershell
 Install-Package NuciAPI
 ```
-
-## Features
-
-- Base request type with built-in HMAC signing and validation
-- Base response type with built-in HMAC signing and validation
-- Standard success and error response models
-- Predefined success responses for common CRUD-style operations
-- Reusable response codes and human-readable messages
-- JSON-friendly response shape using `success`, `message`, `code`, and `hmac`
-
-## Target framework
-
-The package currently targets `.NET 10.0`.
 
 ## Package contents
 
@@ -260,6 +256,10 @@ dotnet build NuciAPI.sln
 dotnet test NuciAPI.sln
 ```
 
+## Target Framework
+
+The current package targets `.NET 10`.
+
 ## License
 
-This project is licensed under the `GPL-3.0-or-later` license. See `LICENSE` for details.
+This project is licensed under the `GNU General Public License v3.0` or later. See [LICENSE](./LICENSE) for details.
