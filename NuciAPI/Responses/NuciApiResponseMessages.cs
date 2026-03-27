@@ -14,6 +14,31 @@ namespace NuciAPI.Responses
             /// Default success message used when no specific message is provided.
             /// </summary>
             public const string Default = "Operation completed successfully.";
+
+            /// <summary>
+            /// Success message indicating that a new resource was successfully created.
+            /// </summary>
+            public const string Created = "The new resource was successfully created.";
+
+            /// <summary>
+            /// Success message indicating that a resource was successfully deleted.
+            /// </summary>
+            public const string Deleted = "The resource was successfully deleted.";
+
+            /// <summary>
+            /// Success message indicating that a resource was successfully fetched.
+            /// </summary>
+            public const string Fetched = "The resource was successfully fetched.";
+
+            /// <summary>
+            /// Success message indicating that a resource was not updated.
+            /// </summary>
+            public const string NotUpdated = "The resource was not updated, as it already has the same content.";
+
+            /// <summary>
+            /// Success message indicating that a resource was successfully updated.
+            /// </summary>
+            public const string Updated = "The resource was successfully updated.";
         }
 
         /// <summary>

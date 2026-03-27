@@ -14,6 +14,31 @@ namespace NuciAPI.Responses
             /// Default success code used when no specific code is provided.
             /// </summary>
             public const string Default = "SUCCESS";
+
+            /// <summary>
+            /// Success code indicating that a new resource was successfully created.
+            /// </summary>
+            public const string Created = "CREATED";
+
+            /// <summary>
+            /// Success code indicating that a resource was successfully deleted.
+            /// </summary>
+            public const string Deleted = "DELETED";
+
+            /// <summary>
+            /// Success code indicating that a resource was successfully fetched.
+            /// </summary>
+            public const string Fetched = "FETCHED";
+
+            /// <summary>
+            /// Success code indicating that a resource was not updated.
+            /// </summary>
+            public const string NotUpdated = "NOT_UPDATED";
+
+            /// <summary>
+            /// Success code indicating that a resource was successfully updated.
+            /// </summary>
+            public const string Updated = "UPDATED";
         }
 
         /// <summary>
