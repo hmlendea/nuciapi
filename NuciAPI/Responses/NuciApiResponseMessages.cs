@@ -23,7 +23,7 @@ namespace NuciAPI.Responses
             /// <summary>
             /// Success message indicating that the operation completed successfully but no changes were made.
             /// </summary>
-            public const string NoChanges = "Operation completed successfully, but no changes were made.";
+            public const string NotUpdated = "The operation completed successfully but no changes were made.";
         }
 
         /// <summary>

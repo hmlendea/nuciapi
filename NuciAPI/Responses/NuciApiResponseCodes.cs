@@ -23,7 +23,7 @@ namespace NuciAPI.Responses
             /// <summary>
             /// Success code indicating that the operation completed successfully but no changes were made.
             /// </summary>
-            public const string NoChanges = "SUCCESS_NO_CHANGE";
+            public const string NotUpdated = "SUCCESS_NOT_UPDATED";
         }
 
         /// <summary>

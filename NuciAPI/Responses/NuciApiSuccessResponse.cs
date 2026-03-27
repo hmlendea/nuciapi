@@ -62,8 +62,8 @@ namespace NuciAPI.Responses
         /// <summary>
         /// Creates a new SuccessResponse instance with a message indicating that the operation completed successfully but no changes were made.
         /// </summary>
-        public static NuciApiSuccessResponse NoChanges => new(
-            NuciApiResponseMessages.SuccessMessages.NoChanges,
-            NuciApiResponseCodes.SuccessCodes.NoChanges);
+        public static NuciApiSuccessResponse NotUpdated => new(
+            NuciApiResponseMessages.SuccessMessages.NotUpdated,
+            NuciApiResponseCodes.SuccessCodes.NotUpdated);
     }
 }
