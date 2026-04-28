@@ -1,4 +1,7 @@
-[![Donate](https://img.shields.io/badge/-%E2%99%A5%20Donate-%23ff69b4)](https://hmlendea.go.ro/fund.html) [![Latest GitHub release](https://img.shields.io/github/v/release/hmlendea/nuciapi)](https://github.com/hmlendea/nuciapi/releases/latest) [![Build Status](https://github.com/hmlendea/nuciapi/actions/workflows/dotnet.yml/badge.svg)](https://github.com/hmlendea/nuciapi/actions/workflows/dotnet.yml)
+[![Donate](https://img.shields.io/badge/-%E2%99%A5%20Donate-%23ff69b4)](https://hmlendea.go.ro/fund.html)
+[![Latest Release](https://img.shields.io/github/v/release/hmlendea/nuciapi)](https://github.com/hmlendea/nuciapi/releases/latest)
+[![Build Status](https://github.com/hmlendea/nuciapi/actions/workflows/dotnet.yml/badge.svg)](https://github.com/hmlendea/nuciapi/actions/workflows/dotnet.yml)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://gnu.org/licenses/gpl-3.0)
 
 # NuciAPI
 
@@ -25,14 +28,20 @@ It provides base classes for requests and responses, plus a set of standard succ
 [![Get it from NuGet](https://raw.githubusercontent.com/hmlendea/readme-assets/master/badges/stores/nuget.png)](https://nuget.org/packages/NuciAPI)
 
 ### .NET CLI
+
 ```bash
 dotnet add package NuciAPI
 ```
 
-## Package Manager
+### Package Manager
+
 ```powershell
 Install-Package NuciAPI
 ```
+
+## Requirements
+
+- .NET SDK/runtime with support for `net10.0`
 
 ## Package contents
 
@@ -256,10 +265,35 @@ dotnet build NuciAPI.sln
 dotnet test NuciAPI.sln
 ```
 
-## Target Framework
+### Release
 
-The current package targets `.NET 10.0`.
+```bash
+dotnet pack -c Release
+```
+
+## Contributing
+
+Contributions are welcome.
+
+Please:
+
+- keep the changes cross-platform
+- keep the existing public API intact, unless a breaking change is intentional
+- keep the pull requests focused and consistent with the existing style
+- update the documentation when the behaviour changes
+- add or update the tests for any new behaviour
+```
+
+## Related Projects
+
+- [NuciAPI](https://github.com/hmlendea/nuciapi)
+- [NuciAPI.Controllers](https://github.com/hmlendea/nuciapi.controllers)
+- [NuciAPI.Middleware](https://github.com/hmlendea/nuciapi.middleware)
+- [NuciAPI.Middleware.ExceptionHandling](https://github.com/hmlendea/nuciapi.middleware.exceptionhandling)
+- [NuciAPI.Middleware.Logging](https://github.com/hmlendea/nuciapi.middleware.logging)
+- [NuciAPI.Middleware.Security](https://github.com/hmlendea/nuciapi.middleware.security)
 
 ## License
 
-This project is licensed under the `GNU General Public License v3.0` or later. See [LICENSE](./LICENSE) for details.
+Licensed under the GNU General Public License v3.0 or later.
+See [LICENSE](./LICENSE) for details.
