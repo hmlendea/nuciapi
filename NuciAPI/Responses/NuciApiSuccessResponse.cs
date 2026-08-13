@@ -14,6 +14,12 @@ namespace NuciAPI.Responses
         public override bool IsSuccessful => true;
 
         /// <summary>
+        /// The response payload content.
+        /// </summary>
+        [JsonPropertyName("content")]
+        public virtual NuciApiResponseContent Content { get; set; }
+
+        /// <summary>
         /// Default constructor for NuciApiSuccessResponse.
         /// </summary>
         public NuciApiSuccessResponse() : base(

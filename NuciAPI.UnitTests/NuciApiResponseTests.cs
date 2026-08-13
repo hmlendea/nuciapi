@@ -5,14 +5,17 @@ namespace NuciAPI.UnitTests
 {
     public class NuciApiResponseTests
     {
-        const string DummySecretKey = "DummySecretKey123!";
+        private static string DummySecretKey => "DummySecretKey123!";
 
         [Test]
         public void GivenAResponse_WhenSigningTheHmac_ThenTheHmacTokenIsPopulated()
         {
             DummyResponse response = new("Test message")
             {
-                DummyProperty = "Test value"
+                Content = new DummyResponseContent
+                {
+                    DummyProperty = "Test value"
+                }
             };
 
             Assert.That(response.HmacToken, Is.Null);
@@ -30,7 +33,10 @@ namespace NuciAPI.UnitTests
             EmptyResponse emptyResponse = new(responseMessage);
             DummyResponse response = new(responseMessage)
             {
-                DummyProperty = "Test value"
+                Content = new DummyResponseContent
+                {
+                    DummyProperty = "Test value"
+                }
             };
 
             emptyResponse.SignHMAC(DummySecretKey);
