@@ -126,6 +126,5 @@ namespace NuciAPI.Responses
         public static NuciApiErrorResponse Unauthorised => new(
             NuciApiResponseMessages.ErrorMessages.Unauthorised,
             NuciApiResponseCodes.ErrorCodes.Unauthorised);
-
     }
 }

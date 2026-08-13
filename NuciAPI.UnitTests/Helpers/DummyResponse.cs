@@ -2,10 +2,8 @@ using NuciAPI.Responses;
 
 namespace NuciAPI.UnitTests.Helpers
 {
-    public class DummyResponse(string message) : NuciApiResponse(message, "DUMMY_CODE")
+    public class DummyResponse(string message) : NuciApiSuccessResponse(message, "DUMMY_CODE")
     {
-        public override bool IsSuccessful => true;
-
-        public string DummyProperty { get; set; }
+        public override NuciApiResponseContent Content { get; set; } = new DummyResponseContent();
     }
 }

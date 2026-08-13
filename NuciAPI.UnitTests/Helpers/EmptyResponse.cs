@@ -2,8 +2,8 @@ using NuciAPI.Responses;
 
 namespace NuciAPI.UnitTests.Helpers
 {
-    public class EmptyResponse(string message) : NuciApiResponse(message, "TEST_CODE")
+    public class EmptyResponse(string message) : NuciApiSuccessResponse(message, "TEST_CODE")
     {
-        public override bool IsSuccessful => true;
+        public override NuciApiResponseContent Content { get; set; }
     }
 }
