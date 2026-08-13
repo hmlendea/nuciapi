@@ -5,103 +5,40 @@
 
 # NuciAPI
 
-## About
+NuciAPI is a small .NET library for building consistent API contracts around strongly-typed request and response models, with integrated HMAC signing and validation for payload integrity.
 
-NuciAPI is a small .NET library for building consistent API contracts around two common concerns:
+## 📑 Table of Contents
 
-- strongly-typed request and response models
-- HMAC signing and validation for payload integrity
+- [Table of Contents](#-table-of-contents)
+- [Capabilities](#-capabilities)
+- [Usage](#-usage)
+- [Installation](#-installation)
+  - [CLI Installation](#cli-installation)
+- [Development](#-development)
+  - [Requirements](#requirements)
+  - [Setup](#setup)
+  - [Build](#build)
+  - [Run](#run)
+  - [Test](#test)
+  - [Release](#release)
+  - [Dependencies](#dependencies)
+- [Project Structure](#-project-structure)
+- [Contributing](#-contributing)
+- [Related Projects](#-related-projects)
+- [Security](#-security)
+- [Supporting the Project](#-supporting-the-project)
+- [License](#-license)
 
-It provides base classes for requests and responses, plus a set of standard success and error response helpers that can be reused across services.
+## ✨ Capabilities
 
-## Features
+- Base request and response contracts with built-in HMAC signing and validation
+- Standardised success and error response models for consistent API behaviour
 
-- Base request type with built-in HMAC signing and validation
-- Base response type with built-in HMAC signing and validation
-- Standard success and error response models
-- Predefined success responses for common CRUD-style operations
-- Reusable response codes and human-readable messages
-- JSON-friendly response shape using `success`, `message`, `code`, and `hmac`
-
-## Installation
-
-[![Get it from NuGet](https://raw.githubusercontent.com/hmlendea/readme-assets/master/badges/stores/nuget.png)](https://nuget.org/packages/NuciAPI)
-
-### .NET CLI
-
-```bash
-dotnet add package NuciAPI
-```
-
-### Package Manager
-
-```powershell
-Install-Package NuciAPI
-```
-
-## Requirements
-
-- .NET SDK/runtime with support for `net10.0`
-
-## Package contents
-
-### Requests
-
-`NuciApiRequest` is the base type for API request models.
-
-It provides:
-
-- `SignHMAC(string secretKey)`
-- `HasValidHMAC(string secretKey)`
-- `ValidateHMAC(string secretKey)`
-- `HmacToken`
-
-The HMAC token itself is ignored by JSON serialization on the base request type, which is useful when the signature is transported outside the request body.
-
-### Responses
-
-`NuciApiResponse` is the base type for API responses.
-
-It exposes:
-
-- `IsSuccessful`
-- `Message`
-- `Code`
-- `HmacToken`
-- `SignHMAC(string secretKey)`
-- `HasValidHMAC(string secretKey)`
-- `ValidateHMAC(string secretKey)`
-
-Two concrete response types are included:
-
-- `NuciApiSuccessResponse`
-- `NuciApiErrorResponse`
-
-The library also exposes shared constants through:
-
-- `NuciApiResponseCodes.SuccessCodes`
-- `NuciApiResponseCodes.ErrorCodes`
-- `NuciApiResponseMessages.SuccessMessages`
-- `NuciApiResponseMessages.ErrorMessages`
-
-## Usage
-
-### Define a request
+## 🚀 Usage
 
 ```csharp
 using NuciAPI.Requests;
-
-public class CreateOrderRequest : NuciApiRequest
-{
-	public string CustomerId { get; set; }
-	public decimal Total { get; set; }
-}
-```
-
-### Sign and validate a request
-
-```csharp
-var secretKey = "super-secret-key";
+using NuciAPI.Responses;
 
 var request = new CreateOrderRequest
 {
@@ -109,154 +46,49 @@ var request = new CreateOrderRequest
 	Total = 149.99m
 };
 
-request.SignHMAC(secretKey);
+request.SignHMAC("super-secret-key");
+request.ValidateHMAC("super-secret-key");
 
-bool isValid = request.HasValidHMAC(secretKey);
-
-request.ValidateHMAC(secretKey);
+var response = NuciApiSuccessResponse.Created;
+response.SignHMAC("super-secret-key");
 ```
 
-### Return a success response
+## 📦 Installation
 
-```csharp
-using NuciAPI.Responses;
+[![Obtain it from NuGet](https://raw.githubusercontent.com/hmlendea/readme-assets/master/badges/stores/nuget.png)](https://nuget.org/packages/NuciAPI)
+[![Obtain it from GitHub](https://raw.githubusercontent.com/hmlendea/readme-assets/master/badges/stores/github.png)](https://github.com/hmlendea/nuciapi/releases)
 
-var response = NuciApiSuccessResponse.Default;
-response.SignHMAC(secretKey);
+### CLI Installation
+
+```bash
+dotnet add package NuciAPI
 ```
 
-For common operations, you can use the built-in success helpers directly:
-
-```csharp
-var createdResponse = NuciApiSuccessResponse.Created;
-var updatedResponse = NuciApiSuccessResponse.Updated;
-var deletedResponse = NuciApiSuccessResponse.Deleted;
-var fetchedResponse = NuciApiSuccessResponse.Fetched;
-var notUpdatedResponse = NuciApiSuccessResponse.NotUpdated;
+Or, via the `Package Manager Console`:
+```powershell
+Install-Package NuciAPI
 ```
 
-### Return a standard error response
+## 🛠️ Development
 
-```csharp
-using NuciAPI.Responses;
+### Requirements
 
-var response = NuciApiErrorResponse.NotFound;
-response.SignHMAC(secretKey);
-```
+- [.NET 10.0 SDK](https://dotnet.microsoft.com/download/dotnet/10.0)
 
-### Create a custom response type
+### Setup
 
-```csharp
-using NuciAPI.Responses;
-
-public class OrderCreatedResponse : NuciApiResponse
-{
-	public OrderCreatedResponse(string orderId)
-		: base("Order created successfully.", "ORDER_CREATED")
-	{
-		OrderId = orderId;
-	}
-
-	public override bool IsSuccessful => true;
-
-	public string OrderId { get; }
-}
-```
-
-## Built-in responses
-
-### Success
-
-- `NuciApiSuccessResponse.Default`
-- `NuciApiSuccessResponse.Created`
-- `NuciApiSuccessResponse.Deleted`
-- `NuciApiSuccessResponse.Fetched`
-- `NuciApiSuccessResponse.NotUpdated`
-- `NuciApiSuccessResponse.Updated`
-- `NuciApiSuccessResponse.FromMessage(string message)`
-
-Default success payload values:
-
-- message: `Operation completed successfully.`
-- code: `SUCCESS`
-
-Built-in success payload values:
-
-- `Created`: `The new resource was successfully created.` / `CREATED`
-- `Deleted`: `The resource was successfully deleted.` / `DELETED`
-- `Fetched`: `The resource was successfully fetched.` / `FETCHED`
-- `NotUpdated`: `The resource was not updated, as it already has the same content.` / `NOT_UPDATED`
-- `Updated`: `The resource was successfully updated.` / `UPDATED`
-
-### Errors
-
-`NuciApiErrorResponse` includes a default response plus a set of common predefined errors:
-
-- `Default`
-- `AlreadyExists`
-- `AlreadyProcessed`
-- `AuthenticationFailure`
-- `BadRequest`
-- `ClientClosedTheRequest`
-- `InternalServerError`
-- `InvalidRequest`
-- `NotFound`
-- `NotImplemented`
-- `ServiceDependencyUnavailable`
-- `Timeout`
-- `Unauthorised`
-
-If you need a custom message while keeping the default error code, use:
-
-```csharp
-var response = NuciApiErrorResponse.FromMessage("The supplied payload is not acceptable.");
-```
-
-### Shared constants
-
-If you need to build custom response types while staying consistent with the built-in contracts, use the exported message and code constants:
-
-```csharp
-using NuciAPI.Responses;
-
-var successCode = NuciApiResponseCodes.SuccessCodes.Created;
-var successMessage = NuciApiResponseMessages.SuccessMessages.Created;
-
-var errorCode = NuciApiResponseCodes.ErrorCodes.NotFound;
-var errorMessage = NuciApiResponseMessages.ErrorMessages.NotFound;
-```
-
-## Response shape
-
-Responses are designed to serialize to a predictable structure similar to:
-
-```json
-{
-  "success": false,
-  "message": "The requested resource was not found.",
-  "code": "NOT_FOUND",
-  "hmac": "..."
-}
-```
-
-## HMAC behavior
-
-HMAC support is implemented through the `NuciSecurity.HMAC` package.
-
-When signing:
-
-- the token is generated from the object data and the provided secret key
-- the token field itself is excluded from the HMAC calculation
-- changing signed properties changes the generated token
-
-This makes it suitable for detecting payload tampering between producer and consumer, as long as both sides share the same secret.
-
-## Development
+All NuGet dependencies are restored automatically by `dotnet restore`.
 
 ### Build
 
 ```bash
 dotnet build NuciAPI.sln
+```
+
+### Run
+
+```bash
+dotnet run --project NuciAPI/NuciAPI.csproj
 ```
 
 ### Test
@@ -268,32 +100,61 @@ dotnet test NuciAPI.sln
 ### Release
 
 ```bash
-dotnet pack -c Release
+dotnet pack NuciAPI/NuciAPI.csproj -c Release
 ```
 
-## Contributing
+### Dependencies
 
-Contributions are welcome.
+| Package | Purpose |
+|---------|---------|
+| NuciSecurity.HMAC | HMAC signing and validation implementation |
 
-Please:
+## 🗂️ Project Structure
 
-- keep the changes cross-platform
-- keep the existing public API intact, unless a breaking change is intentional
-- keep the pull requests focused and consistent with the existing style
-- update the documentation when the behaviour changes
-- add or update the tests for any new behaviour
-```
+The solution contains the subsequent projects:
+- NuciAPI: Main reusable library containing request and response contracts
+- NuciAPI.UnitTests: Unit test project for contract and response behaviour
 
-## Related Projects
+The key directories inside `NuciAPI/` are:
+| Directory | Purpose |
+|-----------|---------|
+| Requests  | Base request contracts and request-side HMAC functionality |
+| Responses | Standard response models, messages, and response codes |
 
-- [NuciAPI](https://github.com/hmlendea/nuciapi)
-- [NuciAPI.Controllers](https://github.com/hmlendea/nuciapi.controllers)
-- [NuciAPI.Middleware](https://github.com/hmlendea/nuciapi.middleware)
-- [NuciAPI.Middleware.ExceptionHandling](https://github.com/hmlendea/nuciapi.middleware.exceptionhandling)
-- [NuciAPI.Middleware.Logging](https://github.com/hmlendea/nuciapi.middleware.logging)
-- [NuciAPI.Middleware.Security](https://github.com/hmlendea/nuciapi.middleware.security)
+## 🤝 Contributing
 
-## License
+You are welcome to submit any suggestion, feedback, or modification to this project.
 
-Licensed under the GNU General Public License v3.0 or later.
-See [LICENSE](./LICENSE) for details.
+When doing so, please:
+- Maintain cross-platform compatibility
+- Maintain the existing public contract intact unless a breaking change is intentional
+- Maintain the pull requests as focused and consistent with the existing code style
+- Maintain your branch up-to-date with `master`
+- Revise the documentation when behaviour changes
+- Properly test all changes, including edge cases and error conditions
+- Add unit tests for any new or changed functionality
+
+## 🔗 Related Projects
+
+- [NuciAPI.Controllers](https://github.com/hmlendea/nuciapi.controllers): Controller-focused extensions built on NuciAPI contracts
+- [NuciAPI.Middleware](https://github.com/hmlendea/nuciapi.middleware): Middleware-oriented helpers for integrating NuciAPI in service pipelines
+- [NuciAPI.Middleware.ExceptionHandling](https://github.com/hmlendea/nuciapi.middleware.exceptionhandling): Exception-handling middleware integrations
+- [NuciAPI.Middleware.Logging](https://github.com/hmlendea/nuciapi.middleware.logging): Logging middleware integrations
+- [NuciAPI.Middleware.Security](https://github.com/hmlendea/nuciapi.middleware.security): Security-focused middleware integrations
+
+## 🔒 Security
+
+For information on reporting security vulnerabilities, see [SECURITY.md](./SECURITY.md).
+
+## 💝 Supporting the Project
+
+Discovered a problem or have a suggestion? [Open an issue](https://github.com/hmlendea/nuciapi/issues)!
+
+If you find this project useful, consider [funding it](https://hmlendea.go.ro/funding) or starring ⭐️ it on GitHub!
+
+[![Donate](https://raw.githubusercontent.com/hmlendea/readme-assets/master/donate_generic.png)](https://hmlendea.go.ro/funding)
+
+## 📄 License
+
+This project is being distributed under the `GNU General Public License v3.0` or later.
+See [LICENSE](./LICENSE) for further information.
