@@ -32,6 +32,7 @@ NuciAPI is a small .NET library for building consistent API contracts around str
 ## ✨ Capabilities
 
 - Base request and response contracts with built-in HMAC signing and validation
+- Generic success responses with strongly typed, serialisable payload content
 - Standardised success and error response models for consistent API behaviour
 
 ## 🚀 Usage
