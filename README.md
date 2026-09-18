@@ -22,6 +22,7 @@ NuciAPI is a small .NET library for building consistent API contracts around str
   - [Test](#test)
   - [Release](#release)
   - [Dependencies](#dependencies)
+- [GitHub Actions](#github-actions)
 - [Project Structure](#-project-structure)
 - [Contributing](#-contributing)
 - [Related Projects](#-related-projects)
@@ -104,11 +105,18 @@ dotnet test NuciAPI.sln
 dotnet pack NuciAPI/NuciAPI.csproj -c Release
 ```
 
+To publish a package through GitHub Actions, create and publish a GitHub Release using a tag matching the package version, optionally prefixed with `v`. The [GitHub Release workflow](.github/workflows/github-release.yml) creates the NuGet package, uploads it to the release, and appends its SHA256 checksum to the release notes.
+
 ### Dependencies
 
 | Package | Purpose |
 |---------|---------|
 | NuciSecurity.HMAC | HMAC signing and validation implementation |
+
+## GitHub Actions
+
+- [.NET workflow](.github/workflows/dotnet.yml): restores, builds, and tests the solution on pushes and pull requests targeting `master`.
+- [GitHub Release workflow](.github/workflows/github-release.yml): packages and publishes the NuGet artefact when a GitHub Release is published.
 
 ## 🗂️ Project Structure
 
