@@ -24,6 +24,8 @@ NuciAPI is a small .NET library for building consistent API contracts around str
   - [Dependencies](#dependencies)
 - [GitHub Actions](#github-actions)
 - [Project Structure](#-project-structure)
+- [Architecture](#-architecture)
+- [Privacy](#-privacy)
 - [Contributing](#-contributing)
 - [Related Projects](#-related-projects)
 - [Security](#-security)
@@ -129,6 +131,18 @@ The key directories inside `NuciAPI/` are:
 |-----------|---------|
 | Requests  | Base request contracts and request-side HMAC functionality |
 | Responses | Standard response models, messages, and response codes |
+
+## 🏗️ Architecture
+
+NuciAPI follows a simple layered architecture with two primary namespaces (`NuciAPI.Requests` and `NuciAPI.Responses`) and a single external dependency on `NuciSecurity.HMAC` for cryptographic operations. The library is stateless, thread-safe, and has no configuration, logging, or persistence infrastructure.
+
+For detailed architecture documentation, see [ARCHITECTURE.md](./ARCHITECTURE.md) and the [docs/](./docs/) directory.
+
+## 🔒 Privacy
+
+NuciAPI is a stateless library that collects, stores, or transmits no personal data. It has no telemetry, no network calls, and no persistent storage. Applications using NuciAPI control all data handling in their request/response payloads.
+
+For the complete privacy statement, see [PRIVACY.md](./PRIVACY.md).
 
 ## 🤝 Contributing
 
