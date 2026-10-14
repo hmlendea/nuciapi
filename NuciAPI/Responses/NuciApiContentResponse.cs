@@ -19,6 +19,7 @@ namespace NuciAPI.Responses
         /// The response payload content.
         /// </summary>
         [JsonPropertyName("content")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public TContent Content { get; set; }
 
         /// <summary>

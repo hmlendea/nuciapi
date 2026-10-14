@@ -24,17 +24,16 @@ namespace NuciAPI.UnitTests
             => Assert.That(NuciApiSuccessResponse.Default.Content, Is.Null);
 
         [Test]
-        public void GivenASuccessResponse_WhenSerialising_ThenTheMessageAndCodePropertiesAreAtTheRootLevel()
+        public void GivenASuccessResponse_WhenSerialising_ThenNullPropertiesAreOmittedAndMetadataIsAtTheRootLevel()
         {
             NuciApiSuccessResponse response = NuciApiSuccessResponse.Default;
             string serialisedResponse = JsonSerializer.Serialize(response);
             JsonDocument serialisedResponseDocument = JsonDocument.Parse(serialisedResponse);
             JsonElement rootElement = serialisedResponseDocument.RootElement;
 
-            Assert.That(rootElement.TryGetProperty("content", out JsonElement contentElement));
+            Assert.That(rootElement.TryGetProperty("content", out _), Is.False);
             Assert.That(rootElement.GetProperty("message").GetString(), Is.EqualTo(NuciApiResponseMessages.SuccessMessages.Default));
             Assert.That(rootElement.GetProperty("code").GetString(), Is.EqualTo(NuciApiResponseCodes.SuccessCodes.Default));
-            Assert.That(contentElement.ValueKind, Is.EqualTo(JsonValueKind.Null));
         }
     }
 }
