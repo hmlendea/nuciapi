@@ -60,8 +60,7 @@ response.SignHMAC("secret");
 {
   "success": true,
   "message": "The new resource was successfully created.",
-  "code": "CREATED",
-  "content": null
+  "code": "CREATED"
 }
 ```
 
@@ -157,8 +156,7 @@ var response = JsonSerializer.Deserialize<NuciApiContentResponse<OrderResponseCo
 string json = @"{
   ""success"": true,
   ""message"": ""Created"",
-  ""code"": ""CREATED"",
-  ""content"": null
+  ""code"": ""CREATED""
 }";
 
 var response = JsonSerializer.Deserialize<NuciApiSuccessResponse>(json);

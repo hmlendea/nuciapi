@@ -42,9 +42,9 @@ logger.LogDebug("Request: {Request}", JsonSerializer.Serialize(request));
 **Causes:**
 1. Property not public — must be public instance property
 2. `[JsonIgnore]` applied — check attributes
-3. Null value with `DefaultIgnoreCondition` — check serializer options
+3. Null value — null properties are omitted by default
 
-**Fix:** Ensure public get/set, no `[JsonIgnore]`, configure serializer if needed.
+**Fix:** Ensure public get/set, no `[JsonIgnore]`. Null properties are omitted by default.
 
 ### Content property missing in error response
 

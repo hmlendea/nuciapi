@@ -45,7 +45,7 @@
 ### 6. Serialisation shape consistency
 
 **Rule:**
-- Success responses: `success`, `message`, `code`, `content` (nullable)
+- Success responses: `success`, `message`, `code` (`content` omitted when null)
 - Error responses: `success`, `message`, `code` (no `content`)
 - Content responses: `success`, `content`, `message`, `code`
 

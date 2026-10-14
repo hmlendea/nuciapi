@@ -63,7 +63,7 @@ No circular dependencies. NuciAPI has zero dependencies on consumer code.
 
 ## Major state
 
-None. The library is stateless. HMAC tokens are computed on-demand from the object graph + secret key.
+None. The library is stateless. HMAC tokens are computed on-demand from the object graph + secret key. Null response properties are omitted from JSON serialisation.
 
 ## Major integrations
 

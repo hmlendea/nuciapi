@@ -78,9 +78,9 @@ catch (HmacValidationException) { return Unauthorized(); }
 
 ## Serialisation
 
-### Why is `content` null in success responses?
+### Why is `content` omitted in success responses?
 
-`NuciApiSuccessResponse.Content` defaults to null. Use `NuciApiContentResponse<T>` for required content.
+`NuciApiSuccessResponse.Content` defaults to null and is omitted from JSON serialisation. Use `NuciApiContentResponse<T>` for required content.
 
 ### Why no `content` in error responses?
 

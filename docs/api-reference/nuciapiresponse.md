@@ -134,8 +134,7 @@ public void ValidateHMAC(string secretKey)
 {
   "success": true,
   "message": "Operation completed successfully.",
-  "code": "SUCCESS",
-  "content": null
+  "code": "SUCCESS"
 }
 ```
 
