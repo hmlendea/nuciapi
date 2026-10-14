@@ -79,7 +79,7 @@ Consumer code → NuciAPI → NuciSecurity.HMAC
 
 ## Major State
 
-**None.** The library is intentionally stateless. HMAC tokens are computed on-demand from the object graph + secret key. No instance or static state is retained between operations.
+**None.** The library is intentionally stateless. HMAC tokens are computed on-demand from the object graph + secret key. No instance or static state is retained between operations. Null response properties are omitted from JSON serialisation.
 
 ## Major Integrations
 

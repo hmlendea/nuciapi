@@ -164,6 +164,8 @@ When doing so, please:
 - Properly test all changes, including edge cases and error conditions
 - Add unit tests for any new or changed functionality
 
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines on contributing to this project.
+
 ## 🔗 Related Projects
 
 - [NuciAPI.Controllers](https://github.com/hmlendea/nuciapi.controllers): Controller-focused extensions built on NuciAPI contracts

@@ -96,8 +96,7 @@ public NuciApiSuccessResponse(string message, string code) : base(message, code)
 {
   "success": true,
   "message": "Operation completed successfully.",
-  "code": "SUCCESS",
-  "content": null
+  "code": "SUCCESS"
 }
 ```
 

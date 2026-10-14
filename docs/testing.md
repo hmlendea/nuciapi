@@ -88,7 +88,7 @@ dotnet test NuciAPI.UnitTests/NuciAPI.UnitTests.csproj --filter "FullyQualifiedN
 
 | Test | Verifies |
 |------|----------|
-| `NuciApiSuccessResponseTests.GivenASuccessResponse_WhenSerialising_ThenTheMessageAndCodePropertiesAreAtTheRootLevel` | JSON shape |
+| `NuciApiSuccessResponseTests.GivenASuccessResponse_WhenSerialising_ThenNullPropertiesAreOmittedAndMetadataIsAtTheRootLevel` | JSON shape |
 | `NuciApiErrorResponseTests.GivenAnErrorResponse_WhenSerialising_ThenTheContentPropertyIsAbsent` | No content in error JSON |
 | `NuciApiContentResponseTests.GivenContent_WhenSerialisingAResponse_ThenTheContentPropertiesAreSerialised` | Content serialised |
 | `NuciApiContentResponseTests.GivenContent_WhenDeserialisingAResponse_ThenTheContentPropertiesAreDeserialised` | Round-trip deserialisation |

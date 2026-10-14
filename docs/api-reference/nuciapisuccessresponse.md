@@ -88,8 +88,7 @@ public static NuciApiSuccessResponse FromMessage(string message)
 {
   "success": true,
   "message": "The new resource was successfully created.",
-  "code": "CREATED",
-  "content": null
+  "code": "CREATED"
 }
 ```
 

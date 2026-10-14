@@ -79,7 +79,7 @@ catch (JsonException)
 ## Null safety
 
 - `HmacToken` is nullable (`string?` effectively) — check before validation
-- `Content` on `NuciApiSuccessResponse` is virtual and defaults to null
+- `Content` on `NuciApiSuccessResponse` is virtual and defaults to null (omitted from JSON serialisation)
 - `Content` on `NuciApiContentResponse<T>` is non-null (constructor requires it)
 - Derived request/response properties — consumer responsibility
 
