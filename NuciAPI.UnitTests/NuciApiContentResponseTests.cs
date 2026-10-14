@@ -54,6 +54,51 @@ namespace NuciAPI.UnitTests
         }
 
         [Test]
+        public void GivenNullContent_WhenSerialisingAResponse_ThenTheContentPropertyIsOmitted()
+        {
+            NuciApiContentResponse<DummyResponseContent> response = new(null);
+
+            using JsonDocument responseDocument = JsonSerializer.SerializeToDocument(response);
+
+            Assert.That(responseDocument.RootElement.TryGetProperty("content", out _), Is.False);
+        }
+
+        [Test]
+        public void GivenNestedNullProperties_WhenSerialisingWithNuciApiOptions_ThenNullPropertiesAreOmittedRecursively()
+        {
+            NuciApiContentResponse<NestedResponseContent> response = new(new()
+            {
+                Name = "Parent",
+                Child = new()
+                {
+                    Name = "Child",
+                    Grandchild = new()
+                    {
+                        Name = "Grandchild",
+                        OptionalValue = null
+                    },
+                    OptionalValue = null
+                },
+                OptionalValue = null
+            });
+
+            using JsonDocument responseDocument = JsonSerializer.SerializeToDocument(
+                response,
+                NuciApiJsonSerializerOptions.Create());
+
+            JsonElement contentElement = responseDocument.RootElement.GetProperty("content");
+            JsonElement childElement = contentElement.GetProperty("Child");
+            JsonElement grandchildElement = childElement.GetProperty("Grandchild");
+
+            Assert.That(contentElement.GetProperty("Name").GetString(), Is.EqualTo("Parent"));
+            Assert.That(childElement.GetProperty("Name").GetString(), Is.EqualTo("Child"));
+            Assert.That(grandchildElement.GetProperty("Name").GetString(), Is.EqualTo("Grandchild"));
+            Assert.That(contentElement.TryGetProperty("OptionalValue", out _), Is.False);
+            Assert.That(childElement.TryGetProperty("OptionalValue", out _), Is.False);
+            Assert.That(grandchildElement.TryGetProperty("OptionalValue", out _), Is.False);
+        }
+
+        [Test]
         public void GivenContent_WhenDeserialisingAResponse_ThenTheContentPropertiesAreDeserialised()
         {
             string serialisedResponse =
@@ -65,6 +110,31 @@ namespace NuciAPI.UnitTests
                     serialisedResponse);
 
             Assert.That(response.Content.DummyProperty, Is.EqualTo("Nucile rullz"));
+        }
+
+        private sealed class NestedResponseContent : NuciApiResponseContent
+        {
+            public string Name { get; set; }
+
+            public NestedResponseChild Child { get; set; }
+
+            public string OptionalValue { get; set; }
+        }
+
+        private sealed class NestedResponseChild
+        {
+            public string Name { get; set; }
+
+            public NestedResponseGrandchild Grandchild { get; set; }
+
+            public string OptionalValue { get; set; }
+        }
+
+        private sealed class NestedResponseGrandchild
+        {
+            public string Name { get; set; }
+
+            public string OptionalValue { get; set; }
         }
     }
 }
