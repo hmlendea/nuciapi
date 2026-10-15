@@ -26,6 +26,7 @@ NuciAPI is a small .NET library for building consistent API contracts around str
 - [Project Structure](#-project-structure)
 - [Architecture](#-architecture)
 - [Privacy](#-privacy)
+- [Code of Conduct](#-code-of-conduct)
 - [Contributing](#-contributing)
 - [Related Projects](#-related-projects)
 - [Security](#-security)
@@ -150,6 +151,10 @@ For detailed architecture documentation, see [ARCHITECTURE.md](./ARCHITECTURE.md
 NuciAPI is a stateless library that collects, stores, or transmits no personal data. It has no telemetry, no network calls, and no persistent storage. Applications using NuciAPI control all data handling in their request/response payloads.
 
 For the complete privacy statement, see [PRIVACY.md](./PRIVACY.md).
+
+## 📜 Code of Conduct
+
+See the [Code of Conduct](./CODE_OF_CONDUCT.md) for the standards of conduct expected in all project spaces.
 
 ## 🤝 Contributing
 
