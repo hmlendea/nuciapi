@@ -25,9 +25,11 @@ namespace NuciAPI.ArchitectureTests
 
         private static string GetRepositoryRoot()
         {
-            DirectoryInfo directory = new DirectoryInfo(typeof(SourceFileConventionTests).Assembly.Location);
+            DirectoryInfo? directory = new DirectoryInfo(typeof(SourceFileConventionTests).Assembly.Location);
 
-            while (directory is not null && !File.Exists(Path.Combine(directory.FullName, "NuciAPI.sln")))
+            while (directory is not null &&
+                !File.Exists(Path.Combine(directory.FullName, "NuciAPI.slnx")) &&
+                !File.Exists(Path.Combine(directory.FullName, "NuciAPI.sln")))
             {
                 directory = directory.Parent;
             }
