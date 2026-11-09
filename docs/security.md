@@ -139,6 +139,17 @@ catch (HmacValidationException)
 
 See root [SECURITY.md](../SECURITY.md) for reporting process.
 
+## Automated security scanning
+
+This repository uses GitHub Actions for continuous security scanning:
+
+- **Security workflow** (`.github/workflows/security.yml`): Runs on every push and pull request to `master`, plus a weekly schedule (Sundays at 00:00 UTC).
+- **Vulnerability scanning**: Checks for vulnerable NuGet packages using `dotnet list package --vulnerable --include-transitive`.
+- **CodeQL analysis**: Performs static code analysis for C# to detect security vulnerabilities and code quality issues.
+- **Results**: Findings are uploaded to GitHub Code Scanning and visible in the Security tab.
+
+Security scan results do not block merges but are reviewed by maintainers. Critical findings may trigger immediate remediation.
+
 ### In-scope for NuciAPI
 
 - HMAC bypass or weakness in NuciAPI usage of `NuciSecurity.HMAC`

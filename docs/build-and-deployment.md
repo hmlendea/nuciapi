@@ -30,6 +30,17 @@ dotnet pack NuciAPI/NuciAPI.csproj -c Release -o ./nupkg
 
 **Environment:** Ubuntu latest, .NET 10.0.x
 
+#### `.github/workflows/security.yml` — Security Scanning
+
+**Triggers:** Push to master, PR to master, weekly schedule (Sundays 00:00 UTC)
+
+**Jobs:**
+1. **Security Scan** — Vulnerability scanning and CodeQL analysis
+
+**Permissions:** `security-events: write`, `contents: read`
+
+**Environment:** Ubuntu latest, .NET 10.0.x
+
 #### `.github/workflows/github-release.yml` — Continuous Deployment
 
 **Triggers:** GitHub Release published
