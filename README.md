@@ -126,6 +126,7 @@ To publish a package through GitHub Actions, create and publish a GitHub Release
 ## GitHub Actions
 
 - [.NET workflow](.github/workflows/dotnet.yml): restores, builds, and tests the solution on pushes and pull requests targeting `master`.
+- [Security workflow](.github/workflows/security.yml): runs vulnerability scanning and CodeQL analysis on pushes, pull requests, and a weekly schedule.
 - [GitHub Release workflow](.github/workflows/github-release.yml): packages and publishes the NuGet artefact when a GitHub Release is published.
 
 ## 🗂️ Project Structure
